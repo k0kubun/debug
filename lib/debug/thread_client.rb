@@ -953,7 +953,7 @@ module DEBUGGER__
             result = frame_eval(eval_src)
           when :irb
             begin
-              result = frame_eval('binding.irb', binding_location: true)
+              result = frame_eval('binding.irb(show_code: false)', binding_location: true)
             ensure
               # workaround: https://github.com/ruby/debug/issues/308
               Reline.prompt_proc = nil if defined? Reline
